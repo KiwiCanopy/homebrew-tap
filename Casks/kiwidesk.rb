@@ -7,19 +7,31 @@ cask "kiwidesk" do
   desc "Tiling window manager with layouts, profiles, and Lua"
   homepage "https://kiwidesk.kiwicanopy.com/"
 
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
+  # KiwiDesk updates itself through Sparkle. By default (Homebrew 6+)
+  # `brew upgrade` upgrades it only while the installed app is older
+  # than this cask, so once Sparkle has updated it brew lists nothing.
+  # HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS=1 makes brew always skip it.
+  auto_updates true
   depends_on arch: :arm64
   depends_on macos: :sonoma
-
-  # KiwiDesk carries Sparkle from this version on, so the app
-  # updates itself and `brew upgrade` defers to it rather than
-  # racing it. Without this stanza both would own the same
-  # install: Sparkle overwrites the .app and brew's manifest goes
-  # stale, reporting the version it installed while a newer one
-  # is on disk. `--greedy` still forces an upgrade for anyone who
-  # wants brew to stay in charge.
-  auto_updates true
 
   app "KiwiDesk.app"
   binary "#{appdir}/KiwiDesk.app/Contents/MacOS/KiwiDesk",
          target: "kiwidesk"
+
+  uninstall launchctl: "org.kiwidesk.KiwiDesk",
+            quit:      "com.kiwicanopy.kiwidesk"
+
+  zap trash: [
+    "~/.config/KiwiDesk",
+    "~/Library/Application Support/KiwiDesk",
+    "~/Library/Caches/com.kiwicanopy.kiwidesk",
+    "~/Library/HTTPStorages/com.kiwicanopy.kiwidesk",
+    "~/Library/Preferences/com.kiwicanopy.kiwidesk.plist",
+  ]
 end
