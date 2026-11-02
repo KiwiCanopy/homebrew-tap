@@ -1,0 +1,33 @@
+name: Check
+
+# Reports only: the release workflow in KiwiCanopy/KiwiDesk pushes
+# each version bump straight to main, and this catches a bad URL or
+# digest right after it lands.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Style and audit
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tap this checkout
+        run: |
+          set -euo pipefail
+          taps="$(brew --repository)/Library/Taps/kiwicanopy"
+          mkdir -p "$taps"
+          ln -s "$GITHUB_WORKSPACE" "$taps/homebrew-tap"
+
+      - name: brew style
+        run: brew style kiwicanopy/tap
+
+      - name: brew audit
+        run: brew audit --cask --strict --online kiwicanopy/tap/kiwidesk
