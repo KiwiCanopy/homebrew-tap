@@ -25,6 +25,7 @@ jobs:
           taps="$(brew --repository)/Library/Taps/kiwicanopy"
           mkdir -p "$taps"
           ln -s "$GITHUB_WORKSPACE" "$taps/homebrew-tap"
+          brew trust kiwicanopy/tap
 
       - name: brew style
         run: brew style kiwicanopy/tap
