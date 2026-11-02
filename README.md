@@ -49,3 +49,9 @@ KiwiDesk's release workflow updates `Casks/kiwidesk.rb` for every
 release, so a change to its version or digest here is overwritten.
 Report problems with the app in
 [KiwiCanopy/KiwiDesk](https://github.com/KiwiCanopy/KiwiDesk/issues).
+
+## License
+
+The cask and the files in this repository are [MIT](LICENSE).
+KiwiDesk itself is licensed under
+[BSL 1.1](https://github.com/KiwiCanopy/KiwiDesk/blob/main/LICENSE).
