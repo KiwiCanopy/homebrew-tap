@@ -10,10 +10,10 @@ cask "kiwidesk" do
   depends_on arch: :arm64
   depends_on macos: :sonoma
 
-  # KiwiDesk updates itself through Sparkle. Since Homebrew 6,
-  # `brew upgrade` still upgrades it when the installed app is older
-  # than this cask, and skips it once Sparkle has caught up; set
-  # HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS=1 to leave it to Sparkle.
+  # KiwiDesk updates itself through Sparkle. By default (Homebrew 6+)
+  # `brew upgrade` upgrades it only while the installed app is older
+  # than this cask, so once Sparkle has updated it brew lists nothing.
+  # HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS=1 makes brew always skip it.
   auto_updates true
 
   app "KiwiDesk.app"
