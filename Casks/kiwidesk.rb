@@ -1,6 +1,6 @@
 cask "kiwidesk" do
-  version "4.1.0"
-  sha256 "58bca3f223c0d22d35409e1c37f6883e41a8cf891eaf072f34e0d0aec925aa52"
+  version "4.2.0"
+  sha256 "be6af0dc327844a372161852a132a48d9689473c04b2bd6e3a0dcdef6bd274e7"
 
   url "https://github.com/KiwiCanopy/KiwiDesk/releases/download/v#{version}/KiwiDesk-#{version}.zip"
   name "KiwiDesk"
