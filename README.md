@@ -43,6 +43,11 @@ you may come back.
 
 A signed download from [kiwidesk.kiwicanopy.com](https://kiwidesk.kiwicanopy.com/).
 
+With Nix and Home Manager, from the
+[KiwiCanopy/nix](https://github.com/KiwiCanopy/nix) flake. That copy
+updates with `nix flake update kiwicanopy && home-manager switch`, not
+through Homebrew.
+
 ## Contributing
 
 KiwiDesk's release workflow updates `Casks/kiwidesk.rb` for every
