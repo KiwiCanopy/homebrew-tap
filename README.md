@@ -24,6 +24,9 @@ brew install --cask kiwidesk
 brew untap kiwicanopy/tap
 ```
 
+Open KiwiDesk again afterwards, and rerun `kiwidesk service start`
+if you used it.
+
 Report problems with the app in
 [KiwiCanopy/KiwiDesk](https://github.com/KiwiCanopy/KiwiDesk/issues).
 
