@@ -8,55 +8,27 @@ Homebrew casks for [KiwiCanopy](https://kiwicanopy.com) apps.
 
 </div>
 
-| App | Install |
-|---|---|
-| [KiwiDesk](https://kiwidesk.kiwicanopy.com/), a tiling window manager for macOS | `brew install --cask kiwicanopy/tap/kiwidesk` |
-
-Apple silicon Macs on macOS 14 Sonoma or later.
-
-Use the full name, `kiwicanopy/tap/kiwidesk`. Since Homebrew 6 a
-cask from a third-party tap installs only once you trust it, and
-naming it in full trusts that one cask.
-
-## Updates
-
-KiwiDesk updates itself through its built-in updater. `brew upgrade`
-also upgrades it whenever the installed app is older than the cask,
-and skips it once the app has updated itself. To leave updates to
-the app alone:
+KiwiDesk has moved to Homebrew's own cask repository. Install it
+with:
 
 ```sh
-export HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS=1
+brew install --cask kiwidesk
 ```
 
-## Uninstall
+Already installed from this tap? KiwiDesk keeps updating itself
+either way. To hand it to the official cask, keeping your settings:
 
 ```sh
 brew uninstall --cask kiwidesk
+brew install --cask kiwidesk
+brew untap kiwicanopy/tap
 ```
 
-Add `--zap` to also remove KiwiDesk's settings, profiles and
-caches, including `~/.config/KiwiDesk`. Back that folder up first if
-you may come back.
-
-## Other ways to install
-
-A signed download from [kiwidesk.kiwicanopy.com](https://kiwidesk.kiwicanopy.com/).
-
-With Nix and Home Manager, from the
-[KiwiCanopy/nix](https://github.com/KiwiCanopy/nix) flake. That copy
-updates with `nix flake update kiwicanopy && home-manager switch`, not
-through Homebrew.
-
-## Contributing
-
-KiwiDesk's release workflow updates `Casks/kiwidesk.rb` for every
-release, so a change to its version or digest here is overwritten.
 Report problems with the app in
 [KiwiCanopy/KiwiDesk](https://github.com/KiwiCanopy/KiwiDesk/issues).
 
 ## License
 
-The cask and the files in this repository are [MIT](LICENSE).
+The files in this repository are [MIT](LICENSE).
 KiwiDesk itself is licensed under
 [BSL 1.1](https://github.com/KiwiCanopy/KiwiDesk/blob/main/LICENSE).
